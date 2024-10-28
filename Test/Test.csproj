@@ -11,4 +11,11 @@
       <ProjectReference Include="..\Framework\Framework.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <None Remove="config/*.json"/>
+        <EmbeddedResource Include="config/*.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </EmbeddedResource>
+    </ItemGroup>
+
 </Project>
