@@ -6,24 +6,32 @@ namespace Framework;
 
 public static class Game
 {
+    private static readonly List<SceneObject> _sceneObjects = new();
+    private static readonly List<SceneObject> _spawnQueue = new();
+    private static readonly List<SceneObject> _destroyQueue = new();
+    
     private static RenderWindow? _window;
     public static bool Debugging { get; private set; }
 
-    public static void StartGame(string configPath = "", bool debug = false) {
+    public static void StartGame(string configPath, bool debug = false) {
         Debugging = debug;
         
-        GameSettings gs;
+        ProjectSettings gs;
         if (configPath != "") {
-            string json = File.ReadAllText(configPath + "/gamesettings.json");
-            gs = JsonSerializer.Deserialize<GameSettings>(json) ?? new GameSettings();
+            string json = File.ReadAllText(configPath + "/projectsettings.json");
+            gs = JsonSerializer.Deserialize<ProjectSettings>(json) ?? new ProjectSettings();
         }
         else {
-            gs = new GameSettings();
+            gs = new ProjectSettings();
         }
         
         Debug.Write("debugging");
         
         OpenWindow(gs.ScreenWidth, gs.ScreenHeight, gs.FrameLimit);
+    }
+
+    public static void StartGame(bool debug = false) {
+        StartGame("config", debug);
     }
 
     private static void OpenWindow(uint width, uint height, uint frameLimit) {
