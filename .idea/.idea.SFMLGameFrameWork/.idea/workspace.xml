@@ -7,14 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f0432e9-b79f-47cb-bf3b-f0ce7dfe6ce7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Framework/RenderObject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Framework/SceneObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SFMLGameFrameWork/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SFMLGameFrameWork/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="1f0432e9-b79f-47cb-bf3b-f0ce7dfe6ce7" name="Changes" comment="added SceneObject and RenderObject class">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SFMLGameFrameWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SFMLGameFrameWork/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Framework/Debug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/Debug.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Framework/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Framework/GameSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/ProjectSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Framework/SceneObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/SceneObject.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +24,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Users/samue/RiderProjects/SFMLGameFrameWork/Framework/Game.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -100,16 +98,28 @@
       <option name="presentableId" value="Default" />
       <updated>1730211296635</updated>
       <workItem from="1730211298360" duration="69000" />
-      <workItem from="1730211396141" duration="2325000" />
+      <workItem from="1730211396141" duration="6227000" />
     </task>
+    <task id="LOCAL-00001" summary="added SceneObject and RenderObject class">
+      <option name="closed" value="true" />
+      <created>1730213835479</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730213835479</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="added SceneObject and RenderObject class" />
+    <option name="LAST_COMMIT_MESSAGE" value="added SceneObject and RenderObject class" />
   </component>
 </project>

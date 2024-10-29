@@ -7,4 +7,14 @@ public static class Debug
             Console.WriteLine(message);
         }
     }
+
+    public static void Warning(string message) {
+        if (Game.Debugging) {
+            Console.WriteLine("WARNING: " + message);
+        }
+    }
+
+    public static void Exception(string message) {
+        throw new Exception("EXCEPTION: " + message);
+    }
 }
