@@ -9,9 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1f0432e9-b79f-47cb-bf3b-f0ce7dfe6ce7" name="Changes" comment="added SceneObject and RenderObject class">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SFMLGameFrameWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SFMLGameFrameWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Framework/Debug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/Debug.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Framework/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Framework/SceneObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/SceneObject.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +19,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "ScrubbyAlien"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/ScrubbyAlien/SFMLGameFramework.git",
+    "accountId": "481ecb2c-9500-4520-9996-144b937e2388"
+  }
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Users/samue/RiderProjects/SFMLGameFrameWork/Framework/Game.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -37,20 +47,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.sync",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Test" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -99,6 +109,7 @@
       <updated>1730211296635</updated>
       <workItem from="1730211298360" duration="69000" />
       <workItem from="1730211396141" duration="6227000" />
+      <workItem from="1730371497557" duration="641000" />
     </task>
     <task id="LOCAL-00001" summary="added SceneObject and RenderObject class">
       <option name="closed" value="true" />

@@ -3,8 +3,7 @@ namespace Framework;
 public abstract class SceneObject
 {
     private readonly HashSet<string> _tags = new();
-    public bool Dead = false;
-    public bool PersistOnClear = false;
+    public bool PersistOnSceneChange { get; protected set; } = false;
     public bool Initialized { get; private set; }
     public bool Paused { get; private set; }
     public bool Enabled { get; private set; }
@@ -31,4 +30,6 @@ public abstract class SceneObject
     public void Unpause() => Paused = false;
     public void Enable() => Enabled = true;
     public void Disable() => Enabled = false;
+    public bool ToBeDestroyed() => this.InDestroyQueue();
+    public bool ToBeSpawned() => this.InSpawnQueue();
 }
