@@ -13,11 +13,7 @@ public abstract class RenderObject : SceneObject
     public bool Hidden { get; private set; }
     public void Hide() => Hidden = true;
     public void Unhide() => Hidden = false;
-
-    private readonly HashSet<string> _layer = new();
-    public void AddLayer(string layer) => this._layer.Add(layer);
-    public bool OnLayer(string layer) => this._layer.Contains(layer);
-
+    
     private int zIndex;
     public void SetZIndex(int index) => zIndex = index;
     public static int CompareByZIndex(RenderObject? r1, RenderObject? r2) {
