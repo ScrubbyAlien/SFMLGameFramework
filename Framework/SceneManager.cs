@@ -94,7 +94,7 @@ public static class SceneManager
             Debug.Exception("Instance of SceneObject does not exist in the scene.");
         } 
         else if (_spawnQueue.Remove(o)) { } // false if it is not queued to spawn
-        else if (!_destroyQueue.Add(o)) {
+        else if (!_destroyQueue.Add(o)) { // try to add to destroy queue
             Debug.Warning("Instance of SceneObject is already queued to be destroyed.");
         }
     }
