@@ -49,9 +49,7 @@ public static class SceneManager
         ChangeScene(Game.ProjectSettings.MainScene);
     }
 
-    public static void ChangeScene(string name) {
-        _nextScene = name;
-    }
+    public static void ChangeScene(string name) => _nextScene = name;
     private static void ClearScene() {
         foreach (SceneObject sceneObject in _sceneObjects) {
             if (!sceneObject.PersistOnSceneChange) sceneObject.BeforeDestroy();

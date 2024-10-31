@@ -13,7 +13,7 @@ public static class Game
     internal static ProjectSettings ProjectSettings { get; private set; } = new();
 
     public static void SetDebugMode(bool on) => Debugging = on;
-    
+
     /// <summary>
     /// Start the game using a configuaration file called projectsettings.json
     /// located at configPath relative to the project root directory.
@@ -30,7 +30,7 @@ public static class Game
         }
         Start(ps);
     }
-
+    
     /// <summary>
     /// Start the game using an instance of the ProjectSettings class.
     /// </summary>
@@ -48,20 +48,21 @@ public static class Game
 
         Clock clock = new Clock();
         SceneManager.Instantiate();
-        
+
         while (_window.IsOpen) {
             _window.DispatchEvents();
             float deltaTime = clock.Restart().AsSeconds();
             UpdateAll(deltaTime);
-            
+
             _window.Clear();
             RenderAll(_window);
-            
+
             _window.Display();
         }
+
         _window.Dispose();
     }
-    
+
     private static void UpdateAll(float deltaTime) {
         SceneManager.ProcessLoadScene();
         SceneManager.ProcessDestroyQueue();
@@ -70,12 +71,11 @@ public static class Game
         SceneManager.UpdateSceneObjects(deltaTime);
         // GlobalEvents?.Invoke();
     }
-
     private static void RenderAll(RenderTarget target) {
         List<RenderObject> renderObjects = SceneManager.AllObjects<RenderObject>().ToList();
         renderObjects.Sort(RenderObject.CompareByZIndex);
         foreach (RenderObject r in renderObjects) {
-            if (r.Enabled || !r.Hidden) r.Render(target);
+            if (r.Enabled || !r.Visible) r.Render(target);
         }
     }
 }

@@ -7,12 +7,12 @@ public abstract class RenderObject : SceneObject
     protected abstract Drawable GetDrawable();
     
     public virtual void Render(RenderTarget target) {
-        if (!Hidden) target.Draw(GetDrawable());
+        if (Visible) target.Draw(GetDrawable());
     }
     
-    public bool Hidden { get; private set; }
-    public void Hide() => Hidden = true;
-    public void Unhide() => Hidden = false;
+    public bool Visible { get; private set; }
+    public void Conceal() => Visible = false;
+    public void Reveal() => Visible = true;
     
     private int zIndex;
     public void SetZIndex(int index) => zIndex = index;
