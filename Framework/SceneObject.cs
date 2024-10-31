@@ -7,11 +7,7 @@ public abstract class SceneObject
     public bool Initialized { get; private set; }
     public bool Paused { get; private set; }
     public bool Enabled { get; private set; }
-
-    /// <summary>
-    /// Any functionality that requires references to other entities should be called from Initialize,
-    /// such as FindByType calls, or event handlers/listerners
-    /// </summary>
+    
     protected virtual void Initialize() { }
 
     public void FullInitialize() {
@@ -20,7 +16,7 @@ public abstract class SceneObject
         Enabled = true;
     }
 
-    public virtual void Destroy() { }
+    public virtual void BeforeDestroy() { }
 
     public virtual void Update(float deltaTime) { }
 
@@ -32,4 +28,6 @@ public abstract class SceneObject
     public void Disable() => Enabled = false;
     public bool ToBeDestroyed() => this.InDestroyQueue();
     public bool ToBeSpawned() => this.InSpawnQueue();
+    public void Spawn() => SceneManager.QueueSpawn(this);
+    public void Destroy() => SceneManager.QueueDestroy(this);
 }

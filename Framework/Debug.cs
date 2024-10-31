@@ -17,14 +17,14 @@ public static class Debug
     }
 
     public static void Write(string message) {
-        if (GameProcess.Debugging) {
+        if (Game.Debugging) {
             _writtenStrings.Add(message);
             PrintConsole();
         }
     }
 
     public static void Log(string message) {
-        if (GameProcess.Debugging) {
+        if (Game.Debugging) {
             if (!_loggedStrings.TryAdd(message, 1)) {
                 _loggedStrings[message]++;
             }
@@ -33,7 +33,7 @@ public static class Debug
     }
 
     public static void Warning(string message) {
-        if (GameProcess.Debugging) {
+        if (Game.Debugging) {
             _writtenStrings.Add("WARNING: " + message);
             PrintConsole();
         }
@@ -44,7 +44,7 @@ public static class Debug
     }
 
     public static void Error(string message) {
-        if (GameProcess.Debugging) {
+        if (Game.Debugging) {
             _writtenStrings.Add("ERROR: " + message);
             PrintConsole();
         }
