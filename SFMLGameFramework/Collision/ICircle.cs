@@ -1,6 +1,6 @@
 using SFML.System;
 
-namespace Framework.Collision;
+namespace SFMLGameFramework.Collision;
 
 public interface ICircle : ICollidable
 {

@@ -1,10 +1,10 @@
-using Framework.System;
+using SFMLGameFramework.System;
 using SFML.Graphics;
 using SFML.System;
 
-namespace Framework.Collision;
+namespace SFMLGameFramework.Collision;
 
-public static partial class Collision
+public static class Collision
 {
     // RectangleRectangle
     public static bool Intersects(this IRectangle rectangle1, IRectangle rectangle2) {
@@ -33,6 +33,9 @@ public static partial class Collision
     public static bool Intersects(this ICircle circle1, ICircle circle2) {
         return (circle1.Origin - circle2.Origin).Length() <= circle1.Radius + circle2.Radius;
     }
+    public static bool Intersects(this ICircle circle1, ICircle circle2, string layer) {
+        return circle2.OnLayer(layer) && circle1.Intersects(circle2);
+    }
     public static bool Intersects(this ICircle circle1, ICircle circle2, out Vector2f diff) {
         bool intersects = circle1.Intersects(circle2);
         diff = new Vector2f();
@@ -42,9 +45,6 @@ public static partial class Collision
             diff = difference.Normalized() * length;
         }
         return intersects;
-    }
-    public static bool Intersects(this ICircle circle1, ICircle circle2, string layer) {
-        return circle2.OnLayer(layer) && circle1.Intersects(circle2);
     }
     public static bool Intersects(this ICircle circle1, ICircle circle2, string layer, out Vector2f diff) {
         diff = new Vector2f();

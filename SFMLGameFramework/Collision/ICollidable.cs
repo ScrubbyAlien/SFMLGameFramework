@@ -1,4 +1,4 @@
-namespace Framework.Collision;
+namespace SFMLGameFramework.Collision;
 
 public interface ICollidable
 {

@@ -1,6 +1,6 @@
 using SFML.Graphics;
 
-namespace Framework;
+namespace SFMLGameFramework;
 
 public abstract class RenderObject : SceneObject
 {

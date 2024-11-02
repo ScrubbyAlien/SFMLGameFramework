@@ -1,6 +1,6 @@
 using SFML.System;
 
-namespace Framework.System;
+namespace SFMLGameFramework.System;
 
 public static class Vector2fExtensions
 {

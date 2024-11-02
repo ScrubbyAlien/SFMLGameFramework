@@ -1,9 +1,9 @@
-namespace Framework;
+namespace SFMLGameFramework;
 
 public static class Debug
 {
-    private static List<string> _writtenStrings = new();
-    private static Dictionary<string, int> _loggedStrings = new();
+    private static readonly List<string> _writtenStrings = new();
+    private static readonly Dictionary<string, int> _loggedStrings = new();
     
     private static void PrintConsole() {
         Console.Clear();
@@ -38,15 +38,14 @@ public static class Debug
             PrintConsole();
         }
     }
-    
-    public static void Exception(string message) {
-        throw new Exception("EXCEPTION: " + message);
-    }
 
     public static void Error(string message) {
         if (Game.Debugging) {
             _writtenStrings.Add("ERROR: " + message);
             PrintConsole();
+        }
+        else {
+            throw new Exception("EXCEPTION: " + message);
         }
     }
 

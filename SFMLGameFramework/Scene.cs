@@ -1,4 +1,4 @@
-namespace Framework;
+namespace SFMLGameFramework;
 
 public abstract class Scene(string name)
 {

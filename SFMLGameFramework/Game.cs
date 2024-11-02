@@ -3,7 +3,7 @@ using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
 
-namespace Framework;
+namespace SFMLGameFramework;
 
 public static class Game
 {

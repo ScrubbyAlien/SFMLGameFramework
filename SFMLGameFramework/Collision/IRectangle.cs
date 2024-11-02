@@ -1,6 +1,6 @@
 using SFML.Graphics;
 
-namespace Framework.Collision;
+namespace SFMLGameFramework.Collision;
 
 public interface IRectangle : ICollidable
 {

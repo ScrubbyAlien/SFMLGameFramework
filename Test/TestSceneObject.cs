@@ -1,4 +1,4 @@
-using Framework;
+using SFMLGameFramework;
 
 namespace Test;
 

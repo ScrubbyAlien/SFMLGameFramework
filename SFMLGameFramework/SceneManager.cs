@@ -1,7 +1,6 @@
 using System.Reflection;
-using static Framework.Game;
 
-namespace Framework;
+namespace SFMLGameFramework;
 
 public static class SceneManager
 {
@@ -39,7 +38,7 @@ public static class SceneManager
             if (scene != null) {
                 List<string> sceneNames = _scenes.Select(s => s.Name).ToList();
                 if (sceneNames.Contains(scene.Name)) { // scenes may not have dulicate names
-                    Debug.Exception($"Scene with name {scene.Name} already exists.");
+                    throw new Exception($"Scene with name {scene.Name} already exists.");
                 }
 
                 _scenes.Add(scene);
@@ -71,9 +70,9 @@ public static class SceneManager
 
     public static void QueueSpawn(SceneObject o) {
         if (o.Initialized) {
-            Debug.Exception($"Instance of SceneObject {nameof(o)} already exists in Scene");
+            throw new Exception($"Instance of SceneObject {nameof(o)} already exists in Scene");
         }
-        else if (!_spawnQueue.Add(o)) {
+        if (!_spawnQueue.Add(o)) {
             Debug.Warning($"Instance of SceneObject {nameof(o)} is already queued to be spawned.");
         }
     }
@@ -84,9 +83,9 @@ public static class SceneManager
     }
     public static void QueueDestroy(SceneObject o) {
         if (!_sceneObjects.Contains(o) && !_spawnQueue.Contains(o)) { // destroyed before it's ever been spawned
-            Debug.Exception("Instance of SceneObject does not exist in the scene.");
+            throw new Exception("Instance of SceneObject does not exist in the scene.");
         }
-        else if (_spawnQueue.Remove(o)) { } // false if it is not queued to spawn
+        if (_spawnQueue.Remove(o)) { } // false if it is not queued to spawn
         else if (!_destroyQueue.Add(o)) { // try to add to destroy queue
             Debug.Warning("Instance of SceneObject is already queued to be destroyed.");
         }
@@ -120,7 +119,7 @@ public static class SceneManager
     internal static void ProcessSpawnQueue() {
         foreach (SceneObject q in _spawnQueue) {
             if (!_sceneObjects.Add(q)) {
-                Debug.Exception("Instance of queued SceneObject already exists in scene.");
+                throw new Exception("Instance of queued SceneObject already exists in scene.");
             }
         }
 
@@ -139,7 +138,7 @@ public static class SceneManager
     // Searching for SceneObjects
     public static T? FindByType<T>() where T : SceneObject {
         HashSet<T> objects = AllObjects<T>();
-        if (objects.Any()) {
+        if (objects.Count != 0) {
             return objects.First();
         }
         return null;

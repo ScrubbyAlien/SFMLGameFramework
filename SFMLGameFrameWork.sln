@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "Framework\Framework.csproj", "{E6888704-42C7-4FE4-89EF-5442C1AF2F2E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFMLGameFramework", "SFMLGameFramework\SFMLGameFramework.csproj", "{E6888704-42C7-4FE4-89EF-5442C1AF2F2E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{27D523A2-9BB4-4B03-B39E-8230FDCF5C4A}"
 EndProject
