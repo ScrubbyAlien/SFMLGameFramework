@@ -26,7 +26,7 @@ public static class SceneManager
         // get all types in assembly 
         IEnumerable<Type> sceneTypes = Assembly.GetEntryAssembly()!.GetTypes()
                                                .Where(t => t.Namespace != null &&
-                                                           t.Namespace.Contains(Game.ProjectSettings.SceneNamespace));
+                                                           t.Namespace.Contains(Game.ProjectSettings.ScenesNamespace));
         // dynamically call each constructor
         foreach (Type type in sceneTypes) {
             // <>c appears when lambda expressions exist in the class definition
@@ -53,7 +53,6 @@ public static class SceneManager
         foreach (SceneObject sceneObject in _sceneObjects) {
             if (!sceneObject.PersistOnSceneChange) sceneObject.BeforeDestroy();
         }
-
         _sceneObjects.RemoveWhere(o => !o.PersistOnSceneChange);
 
         foreach (SceneObject queued in _spawnQueue) {
@@ -61,6 +60,7 @@ public static class SceneManager
         }
 
         _spawnQueue.RemoveWhere(o => !o.PersistOnSceneChange);
+        AssetManager.UnloadAssets();
     }
     private static void LoadScene(string name) {
         _currentScene = _scenes.First(scene => scene.Name == name);

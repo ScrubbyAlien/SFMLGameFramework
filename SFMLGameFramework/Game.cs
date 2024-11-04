@@ -48,6 +48,7 @@ public static class Game
 
         Clock clock = new Clock();
         SceneManager.Instantiate();
+        AssetManager.PreLoadAssets(ProjectSettings.PreLoadedAssets);
 
         while (_window.IsOpen) {
             _window.DispatchEvents();
