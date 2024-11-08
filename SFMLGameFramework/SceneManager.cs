@@ -7,7 +7,7 @@ public static class SceneManager
     public static event Action<string, string>? SceneChanged;
 
     private static string _nextScene = "";
-    private static Scene _currentScene = null!;
+    private static Scene? _currentScene;
     private static readonly List<Scene> _scenes = new();
 
     private static readonly HashSet<SceneObject> _sceneObjects = new();
@@ -18,8 +18,12 @@ public static class SceneManager
         return _sceneObjects.OfType<T>().ToHashSet();
     }
 
-    internal static bool InDestroyQueue(this SceneObject o) => _destroyQueue.Contains(o);
-    internal static bool InSpawnQueue(this SceneObject o) => _spawnQueue.Contains(o);
+    internal static bool InDestroyQueue(this SceneObject o) {
+        return _destroyQueue.Contains(o);
+    }
+    internal static bool InSpawnQueue(this SceneObject o) {
+        return _spawnQueue.Contains(o);
+    }
 
     // Managing SceneObjects
     internal static void Instantiate() {
@@ -48,7 +52,9 @@ public static class SceneManager
         ChangeScene(Game.ProjectSettings.MainScene);
     }
 
-    public static void ChangeScene(string name) => _nextScene = name;
+    public static void ChangeScene(string name) {
+        _nextScene = name;
+    }
     private static void ClearScene() {
         foreach (SceneObject sceneObject in _sceneObjects) {
             if (!sceneObject.PersistOnSceneChange) sceneObject.BeforeDestroy();
@@ -58,8 +64,8 @@ public static class SceneManager
         foreach (SceneObject queued in _spawnQueue) {
             if (!queued.PersistOnSceneChange) queued.BeforeDestroy();
         }
-
         _spawnQueue.RemoveWhere(o => !o.PersistOnSceneChange);
+        
         AssetManager.UnloadAssets();
     }
     private static void LoadScene(string name) {
@@ -99,7 +105,7 @@ public static class SceneManager
     internal static void ProcessLoadScene() {
         if (_nextScene == "") return;
         ClearScene();
-        string lastScene = _currentScene.Name;
+        string lastScene = _currentScene?.Name ?? "";
         LoadScene(_nextScene);
         SceneChanged?.Invoke(lastScene, _nextScene);
         _nextScene = "";

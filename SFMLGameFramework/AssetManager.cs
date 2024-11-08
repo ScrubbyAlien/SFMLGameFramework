@@ -16,23 +16,30 @@ public static class AssetManager
 
     private static Dictionary<string, Texture> _preLoadedTextures = new();
     private static Dictionary<string, Texture> _loadedTextures = new();
-    private static Texture LoadTexture(string fileName) => new Texture($"{AssetPath}/{TexturesPath}/{fileName}");
+    private static Texture LoadTexture(string fileName) {
+        return new Texture($"{AssetPath}/{TexturesPath}/{fileName}");
+    }
 
     private static Dictionary<string, Font> _preLoadedFonts = new();
     private static Dictionary<string, Font> _loadedFonts = new();
-    private static Font LoadFont(string fileName) => new Font($"{AssetPath}/{FontsPath}/{fileName}");
+    private static Font LoadFont(string fileName) {
+        return new Font($"{AssetPath}/{FontsPath}/{fileName}");
+    }
 
     private static Dictionary<string, SoundBuffer> _preLoadedSounds = new();
     private static Dictionary<string, SoundBuffer> _loadedSounds = new();
-    private static SoundBuffer CreateSoundBuffer(string fileName) =>
-        new SoundBuffer($"{AssetPath}/{SoundsPath}/{fileName}");
+    private static SoundBuffer CreateSoundBuffer(string fileName) {
+        return new SoundBuffer($"{AssetPath}/{SoundsPath}/{fileName}");
+    }
 
     private static Dictionary<string, Music> _preLoadedMusics = new();
     private static Dictionary<string, Music> _loadedMusics = new();
-    private static Music CreateMusic(string fileName) => new Music($"{AssetPath}/{MusicsPath}/{fileName}");
+    private static Music CreateMusic(string fileName) {
+        return new Music($"{AssetPath}/{MusicsPath}/{fileName}");
+    }
 
     private static void PreLoadFiles<T>(
-        string[] fileNames, 
+        string[] fileNames,
         ref Dictionary<string, T> preLoadedDict,
         Func<string, T> constructor
     ) {
@@ -68,19 +75,23 @@ public static class AssetManager
         _loadedMusics.Clear();
     }
 
-    public static Texture GetTexture(string fileName) =>
-        GetGenericAsset(fileName, ref _preLoadedTextures, ref _loadedTextures, LoadTexture);
-    public static Font GetFont(string fileName) =>
-        GetGenericAsset(fileName, ref _preLoadedFonts, ref _loadedFonts, LoadFont);
-    public static Sound GetSound(string fileName) =>
-        new Sound(GetGenericAsset(fileName, ref _preLoadedSounds, ref _loadedSounds, CreateSoundBuffer));
-    public static Music GetMusic(string fileName) =>
-        GetGenericAsset(fileName, ref _preLoadedMusics, ref _loadedMusics, CreateMusic);
+    public static Texture GetTexture(string fileName) {
+        return GetGenericAsset(fileName, ref _preLoadedTextures, ref _loadedTextures, LoadTexture);
+    }
+    public static Font GetFont(string fileName) {
+        return GetGenericAsset(fileName, ref _preLoadedFonts, ref _loadedFonts, LoadFont);
+    }
+    public static Sound GetSound(string fileName) {
+        return new Sound(GetGenericAsset(fileName, ref _preLoadedSounds, ref _loadedSounds, CreateSoundBuffer));
+    }
+    public static Music GetMusic(string fileName) {
+        return GetGenericAsset(fileName, ref _preLoadedMusics, ref _loadedMusics, CreateMusic);
+    }
 
     private static T GetGenericAsset<T>(
-        string fileName, 
+        string fileName,
         ref Dictionary<string, T> preLoaded,
-        ref Dictionary<string, T> loaded, 
+        ref Dictionary<string, T> loaded,
         Func<string, T> constructor
     ) {
         if (preLoaded.TryGetValue(fileName, out T? preT)) return preT;

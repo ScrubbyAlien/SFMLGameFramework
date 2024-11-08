@@ -4,13 +4,13 @@ public static class Debug
 {
     private static readonly List<string> _writtenStrings = new();
     private static readonly Dictionary<string, int> _loggedStrings = new();
-    
+
     private static void PrintConsole() {
         Console.Clear();
-        foreach (KeyValuePair<string,int> logged in _loggedStrings) {
+        foreach (KeyValuePair<string, int> logged in _loggedStrings) {
             Console.WriteLine($"[{logged.Value}] {logged.Key}");
         }
-        
+
         foreach (string s in _writtenStrings) {
             Console.WriteLine(s);
         }
@@ -48,5 +48,4 @@ public static class Debug
             throw new Exception("EXCEPTION: " + message);
         }
     }
-
 }

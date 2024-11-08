@@ -27,8 +27,7 @@ public static class Collision
         diff = new Vector2f();
         return rectangle2.OnLayer(layer) && rectangle1.Intersects(rectangle2, out diff);
     }
-    
-    
+
     // CircleCircle
     public static bool Intersects(this ICircle circle1, ICircle circle2) {
         return (circle1.Origin - circle2.Origin).Length() <= circle1.Radius + circle2.Radius;

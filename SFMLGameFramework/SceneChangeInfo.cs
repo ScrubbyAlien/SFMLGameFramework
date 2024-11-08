@@ -12,15 +12,21 @@ public sealed class SceneChangeInfo<T> : SceneObject
         PersistOnSceneChange = true;
     }
 
-    public T Extract() => _info;
-    
-    protected override void Initialize() => SceneManager.SceneChanged += OnSceneChange;
-    public override void BeforeDestroy() => SceneManager.SceneChanged -= OnSceneChange;
-    private void OnSceneChange(string lastScene, string nextScene) => _sceneChanged = true;
+    public T Extract() { return _info; }
+
+    protected override void Initialize() {
+        SceneManager.SceneChanged += OnSceneChange;
+    }
+    public override void BeforeDestroy() {
+        SceneManager.SceneChanged -= OnSceneChange;
+    }
+    private void OnSceneChange(string lastScene, string nextScene) {
+        _sceneChanged = true;
+    }
 
     public override void Update(float deltaTime) {
         // destroy this instance on the first frame after a new scene has been loaded
-        if (_sceneChanged) Destroy();   
+        if (_sceneChanged) Destroy();
     }
 
     public static T Catch(string name, T defaultValue) {

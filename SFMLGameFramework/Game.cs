@@ -12,7 +12,9 @@ public static class Game
     public static bool Debugging { get; private set; }
     internal static ProjectSettings ProjectSettings { get; private set; } = new();
 
-    public static void SetDebugMode(bool on) => Debugging = on;
+    public static void SetDebugMode(bool on) {
+        Debugging = on;
+    }
 
     /// <summary>
     /// Start the game using a configuaration file called projectsettings.json
@@ -30,7 +32,7 @@ public static class Game
         }
         Start(ps);
     }
-    
+
     /// <summary>
     /// Start the game using an instance of the ProjectSettings class.
     /// </summary>
@@ -41,12 +43,12 @@ public static class Game
     }
 
     private static void OpenWindow(uint width, uint height, uint frameLimit) {
-        _window = new(new VideoMode(width, height), "Invaders");
+        _window = new RenderWindow(new VideoMode(width, height), "Invaders");
         // ReSharper disable once AccessToDisposedClosure
         _window.Closed += (_, _) => _window.Close();
         _window.SetFramerateLimit(frameLimit);
 
-        Clock clock = new Clock();
+        Clock clock = new();
         SceneManager.Instantiate();
         AssetManager.PreLoadAssets(ProjectSettings.PreLoadedAssets);
 
