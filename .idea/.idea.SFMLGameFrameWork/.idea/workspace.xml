@@ -8,11 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f0432e9-b79f-47cb-bf3b-f0ce7dfe6ce7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/SFMLGameFramework/AssetManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SFMLGameFrameWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SFMLGameFrameWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SFMLGameFramework/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SFMLGameFramework/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SFMLGameFramework/ProjectSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SFMLGameFramework/ProjectSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SFMLGameFramework/SceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SFMLGameFramework/SceneManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +112,8 @@
       <workItem from="1730371497557" duration="641000" />
       <workItem from="1730541800192" duration="4118000" />
       <workItem from="1730736049343" duration="28000" />
+      <workItem from="1730736087708" duration="5387000" />
+      <workItem from="1731104592165" duration="31000" />
     </task>
     <task id="LOCAL-00001" summary="added SceneObject and RenderObject class">
       <option name="closed" value="true" />
@@ -133,7 +131,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730542101206</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added asset manager">
+      <option name="closed" value="true" />
+      <created>1730742158400</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730742158400</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,7 +152,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="added SceneObject and RenderObject class" />
     <MESSAGE value="minor refactors and renamings" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor refactors and renamings" />
+    <MESSAGE value="added asset manager" />
+    <option name="LAST_COMMIT_MESSAGE" value="added asset manager" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

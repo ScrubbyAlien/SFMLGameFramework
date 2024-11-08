@@ -25,7 +25,7 @@ public static class SceneManager
         return _spawnQueue.Contains(o);
     }
 
-    // Managing SceneObjects
+    // create one instance of all classes inheriting Scene in namespace ScenesNamespace
     internal static void Instantiate() {
         // get all types in assembly 
         IEnumerable<Type> sceneTypes = Assembly.GetEntryAssembly()!.GetTypes()
@@ -40,15 +40,13 @@ public static class SceneManager
             // get parameterless constructor and invoke it
             Scene? scene = (Scene?)type.GetConstructor(Type.EmptyTypes)?.Invoke([]);
             if (scene != null) {
-                List<string> sceneNames = _scenes.Select(s => s.Name).ToList();
-                if (sceneNames.Contains(scene.Name)) { // scenes may not have dulicate names
+                bool sceneNameExists = _scenes.Select(s => s.Name).Contains(scene.Name);
+                if (sceneNameExists) { // scenes may not have dulicate names
                     throw new Exception($"Scene with name {scene.Name} already exists.");
                 }
-
                 _scenes.Add(scene);
             }
         }
-
         ChangeScene(Game.ProjectSettings.MainScene);
     }
 
@@ -116,10 +114,8 @@ public static class SceneManager
                 Debug.Warning("Instance of SceneObject to be destroyed does not exist in scene");
                 continue;
             }
-
             o.BeforeDestroy();
         }
-
         _destroyQueue.Clear();
     }
     internal static void ProcessSpawnQueue() {
@@ -132,7 +128,7 @@ public static class SceneManager
         _spawnQueue.Clear();
 
         foreach (SceneObject o in _sceneObjects) {
-            if (!o.Initialized) o.FullInitialize();
+            if (!o.Initialized) o.InitializeSceneObject();
         }
     }
     internal static void UpdateSceneObjects(float deltaTime) {

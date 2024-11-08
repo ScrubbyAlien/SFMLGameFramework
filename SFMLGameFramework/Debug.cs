@@ -15,37 +15,41 @@ public static class Debug
             Console.WriteLine(s);
         }
     }
-
-    public static void Write(string message) {
+    
+    public static void Write(object message) {
+        string messageString = message.ToString() ?? "[object]";
         if (Game.Debugging) {
-            _writtenStrings.Add(message);
+            _writtenStrings.Add(messageString);
             PrintConsole();
         }
     }
-
-    public static void Log(string message) {
+    
+    public static void Log(object message) {
+        string messageString = message.ToString() ?? "[object]";
         if (Game.Debugging) {
-            if (!_loggedStrings.TryAdd(message, 1)) {
-                _loggedStrings[message]++;
+            if (!_loggedStrings.TryAdd(messageString, 1)) {
+                _loggedStrings[messageString]++;
             }
             PrintConsole();
         }
     }
-
-    public static void Warning(string message) {
+    
+    public static void Warning(object message) {
+        string messageString = message.ToString() ?? "[object]";
         if (Game.Debugging) {
-            _writtenStrings.Add("WARNING: " + message);
+            _writtenStrings.Add("WARNING: " + messageString);
             PrintConsole();
         }
     }
-
-    public static void Error(string message) {
+    
+    public static void Error(object message) {
+        string messageString = message.ToString() ?? "[object]";
         if (Game.Debugging) {
-            _writtenStrings.Add("ERROR: " + message);
+            _writtenStrings.Add("ERROR: " + messageString);
             PrintConsole();
         }
         else {
-            throw new Exception("EXCEPTION: " + message);
+            throw new Exception("EXCEPTION: " + messageString);
         }
     }
 }

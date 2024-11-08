@@ -10,7 +10,7 @@ public abstract class SceneObject
 
     protected virtual void Initialize() { }
 
-    public void FullInitialize() {
+    internal void InitializeSceneObject() {
         Initialize();
         Initialized = true;
         Enabled = true;
