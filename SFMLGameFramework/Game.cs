@@ -67,6 +67,7 @@ public static class Game
     }
 
     private static void UpdateAll(float deltaTime) {
+        Input.UpdateKeyboardState();
         SceneManager.ProcessLoadScene();
         SceneManager.ProcessDestroyQueue();
         SceneManager.ProcessSpawnQueue();
