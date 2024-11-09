@@ -1,22 +1,27 @@
 using SFML.Window;
 using SFMLGameFramework;
+using SFMLGameFramework.Audio;
 
 namespace Test;
 
 public class TestSceneObject : SceneObject
 {
+    protected override void Initialize() {
+        AudioManager.PlayMusic("mainmenu.wav");
+    }
+
     public override void Update(float deltaTime) {
-        if (Input.KeyDown(Keyboard.Key.Space)) {
-            Debug.Log("down");
-        }
         if (Input.KeyPressed(Keyboard.Key.Space)) {
-            Debug.Log("pressed");
+            AudioManager.PlaySound("powerup.wav");
         }
-        if (Input.KeyUp(Keyboard.Key.Space)) {
-            Debug.Log("up");
+        if (Input.KeyPressed(Keyboard.Key.A)) {
+            AudioManager.PauseMusic();
         }
-        if (Input.KeyReleased(Keyboard.Key.Space)) {
-            Debug.Log("released");
+        if (Input.KeyPressed(Keyboard.Key.K)) {
+            AudioManager.PlayMusic("mainmenu.wav");
+        }
+        if (Input.KeyPressed(Keyboard.Key.B)) {
+            AudioManager.PlayMusic("finale.wav");
         }
     }
 }

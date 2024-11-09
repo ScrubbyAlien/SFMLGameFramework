@@ -76,21 +76,21 @@ public static class AssetManager
     }
 
     public static Texture GetTexture(string fileName) {
-        return GetGenericAsset(fileName, ref _preLoadedTextures, ref _loadedTextures, LoadTexture);
+        return GetGenericAsset(fileName, _preLoadedTextures, ref _loadedTextures, LoadTexture);
     }
     public static Font GetFont(string fileName) {
-        return GetGenericAsset(fileName, ref _preLoadedFonts, ref _loadedFonts, LoadFont);
+        return GetGenericAsset(fileName, _preLoadedFonts, ref _loadedFonts, LoadFont);
     }
     public static Sound GetSound(string fileName) {
-        return new Sound(GetGenericAsset(fileName, ref _preLoadedSounds, ref _loadedSounds, CreateSoundBuffer));
+        return new Sound(GetGenericAsset(fileName, _preLoadedSounds, ref _loadedSounds, CreateSoundBuffer));
     }
     public static Music GetMusic(string fileName) {
-        return GetGenericAsset(fileName, ref _preLoadedMusics, ref _loadedMusics, CreateMusic);
+        return GetGenericAsset(fileName, _preLoadedMusics, ref _loadedMusics, CreateMusic);
     }
 
     private static T GetGenericAsset<T>(
         string fileName,
-        ref Dictionary<string, T> preLoaded,
+        Dictionary<string, T> preLoaded,
         ref Dictionary<string, T> loaded,
         Func<string, T> constructor
     ) {
